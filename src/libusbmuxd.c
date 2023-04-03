@@ -109,7 +109,7 @@ static char *prog_name = NULL;
 // threads
 #include <libimobiledevice-glue/thread.h>
 
-static int libusbmuxd_debug = 0;
+static int libusbmuxd_debug = 1;
 #ifndef PACKAGE
 #define PACKAGE "libusbmuxd"
 #endif
@@ -286,7 +286,7 @@ static usbmuxd_device_info_t *device_info_from_plist(plist_t props)
 					char *netaddr = NULL;
 					uint64_t addr_len = 0;
 					plist_get_data_val(n, &netaddr, &addr_len);
-					LIBUSBMUXD_DEBUG("%s: Netaddr is: %s, and addr_len is: %lld", __func__, *netaddr, *addr_len);
+					LIBUSBMUXD_DEBUG(1, "%s: Netaddr is: %s, and addr_len is: %lld", __func__, netaddr, addr_len);
 					if (netaddr && addr_len > 0 && addr_len < sizeof(devinfo->conn_data)) {
 						#if defined(WIN32) || defined(__CYGWIN__)
 							if(addr_len >= 8 && 0 == memcmp(win_prefix, netaddr, 4)){
