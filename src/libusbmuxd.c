@@ -109,7 +109,7 @@ static char *prog_name = NULL;
 // threads
 #include <libimobiledevice-glue/thread.h>
 
-static int libusbmuxd_debug = 1;
+static int libusbmuxd_debug = 0;
 #ifndef PACKAGE
 #define PACKAGE "libusbmuxd"
 #endif
